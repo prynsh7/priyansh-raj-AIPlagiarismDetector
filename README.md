@@ -1,50 +1,60 @@
-# React + TypeScript + Vite
+# PlagiarismAI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+PlagiarismAI is a web application built with Vite that allows users to check documents for plagiarism using OpenAI's API. This README provides instructions on how to set up and run the project locally.
 
-Currently, two official plugins are available:
+https://github.com/user-attachments/assets/12ad4b5c-48ff-4128-81a7-d36474d17dfb
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## Table of Contents
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
+  - [1. Clone the Repository](#1-clone-the-repository)
+  - [2. Install Dependencies](#2-install-dependencies)
+  - [3. Set Up Environment Variables](#3-set-up-environment-variables)
+  - [4. Run the Development Server](#4-run-the-development-server)
+  - [5. Access the Application](#5-access-the-application)
+- [Usage](#usage)
+- [Building for Production](#building-for-production)
+- [Removing a Committed File](#removing-a-committed-file)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
 
-- Configure the top-level `parserOptions` property like this:
+## Prerequisites
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+Before you begin, ensure you have the following installed on your machine:
+
+- [Node.js](https://nodejs.org/) (version 14 or later)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
+- A valid OpenAI API key
+
+## Getting Started
+
+Follow these steps to run the PlagiarismAI application locally.
+
+### 1. Clone the Repository
+
+First, clone the repository to your local machine:
+
+```bash
+git clone https://github.com/yourusername/plagiarismAI.git
+cd plagiarismAI
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### 2. Install Dependencies
+npm install
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### 3. Set Up Environment Variables
+VITE_OPENAI_API_KEY=your_openai_api_key_here
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### 4. Run the Development Server
+npm run dev
+
+### 5. Access the Application
+Open your web browser and navigate to http://localhost:5173 to access the PlagiarismAI application.
+
+
+
+
+
+
