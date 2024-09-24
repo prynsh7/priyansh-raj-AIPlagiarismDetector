@@ -1,22 +1,20 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 // Create a custom error type for API errors
 export class ApiError extends Error {
   constructor(public response: AxiosResponse) {
     super(`API Error: ${response.status} ${response.statusText}`);
-    this.name = 'ApiError';
+    this.name = "ApiError";
   }
 }
 
 // Create the Axios instance with default configuration
 const api: AxiosInstance = axios.create({
-  baseURL:
-//    process.env.REACT_APP_API_BASE_URL || 
-  'https://api.openai.com/v1',
+  baseURL: "https://api.openai.com/v1",
   timeout: 10000, // 10 seconds
   headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json',
+    "Content-Type": "application/json",
+    Accept: "application/json",
   },
 });
 
@@ -24,10 +22,10 @@ const api: AxiosInstance = axios.create({
 api.interceptors.request.use(
   (config: AxiosRequestConfig) => {
     // You can modify the request config here (e.g., add authentication token)
-    const token = localStorage.getItem('authToken');
+    const token = localStorage.getItem("authToken");
     if (token) {
       config.headers = config.headers || {};
-      config.headers['Authorization'] = `Bearer ${token}`;
+      config.headers["Authorization"] = `Bearer ${token}`;
     }
     return config;
   },
@@ -49,10 +47,10 @@ api.interceptors.response.use(
       throw new ApiError(error.response);
     } else if (error.request) {
       // The request was made but no response was received
-      throw new Error('No response received from the server');
+      throw new Error("No response received from the server");
     } else {
       // Something happened in setting up the request that triggered an Error
-      throw new Error('Error setting up the request');
+      throw new Error("Error setting up the request");
     }
   }
 );

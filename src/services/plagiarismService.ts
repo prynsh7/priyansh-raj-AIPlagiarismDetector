@@ -29,10 +29,8 @@ interface OpenAIResponse {
 }
 
 class PlagiarismService {
-  private openAIApiKey =
-    // process.env.REACT_APP_OPENAI_API_KEY ||
-    "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";
-
+  private openAIApiKey = import.meta.env.VITE_OPENAI_API_KEY 
+  
   async submitDocument(file: File): Promise<PlagiarismCheckResult> {
     const text = await this.extractTextFromFile(file);
     const plagiarismResult = await this.checkPlagiarismWithOpenAI(text);
