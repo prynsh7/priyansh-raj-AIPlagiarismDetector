@@ -28,7 +28,7 @@ const Header = () => {
           </div>
           <nav className="hidden md:flex space-x-10">
             <a
-              href="/"
+              href="/check-plagiarism"
               className="text-base font-medium text-gray-500 hover:text-gray-900"
             >
               Plagiarism Checker
@@ -67,19 +67,11 @@ const Header = () => {
               <div className="mt-6">
                 <nav className="grid gap-y-8">
                   <a
-                    href="/"
+                    href="/check-plagiarism"
                     className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                   >
                     <span className="ml-3 text-base font-medium text-gray-900">
-                      Home
-                    </span>
-                  </a>
-                  <a
-                    href="/features"
-                    className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
-                  >
-                    <span className="ml-3 text-base font-medium text-gray-900">
-                      Features
+                      Plagiarism Checker
                     </span>
                   </a>
                   <a
