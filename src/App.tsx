@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { useState } from "react";
 import Homepage from "./components/Homepage";
 import Header from "./atoms/Header";
 import Footer from "./atoms/Footer";

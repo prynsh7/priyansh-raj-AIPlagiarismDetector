@@ -4,7 +4,7 @@ import plagiarismService from "../services/plagiarismService";
 
 // Dummy plagiarism data
 const dummyPlagiarismData = {
-  percentage: 15,
+  percentage: '15%',
   flaggedSections: [
     {
       title: "Section 1",

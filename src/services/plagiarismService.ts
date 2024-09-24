@@ -3,7 +3,7 @@ import * as pdfjs from "pdfjs-dist";
 pdfjs.GlobalWorkerOptions.workerSrc = "https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js";
 
 export interface PlagiarismCheckResult {
-  percentage: number;
+  percentage: string;
   flaggedSections: {
     section_title: string;
     details: string;
@@ -147,7 +147,7 @@ Conclusion: <Final analysis or summary>`,
       /Sections Appearing to be Plagiarized:\s*([\s\S]*?)(Conclusion:|$)/i
     );
 
-    let flaggedSections = [];
+    let flaggedSections: any[] = [];
     if (sectionsMatch) {
       // Split the sections by numbers (1., 2., 3.) and filter out empty entries
       const sections = sectionsMatch[1]

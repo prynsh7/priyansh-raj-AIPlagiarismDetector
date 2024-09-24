@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import axios, { AxiosInstance, AxiosResponse } from "axios";
 
 // Create a custom error type for API errors
 export class ApiError extends Error {
@@ -20,7 +20,7 @@ const api: AxiosInstance = axios.create({
 
 // Request interceptor
 api.interceptors.request.use(
-  (config: AxiosRequestConfig) => {
+  (config: any) => {
     // You can modify the request config here (e.g., add authentication token)
     const token = localStorage.getItem("authToken");
     if (token) {
