@@ -1,7 +1,6 @@
 import * as pdfjs from "pdfjs-dist";
 
-pdfjs.GlobalWorkerOptions.workerSrc =
-  "https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js";
+pdfjs.GlobalWorkerOptions.workerSrc = "https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js";
 
 export interface PlagiarismCheckResult {
   percentage: number;
@@ -29,10 +28,13 @@ interface OpenAIResponse {
 }
 
 class PlagiarismService {
-  private openAIApiKey = import.meta.env.VITE_OPENAI_API_KEY 
+  private openAIApiKey =  import.meta.env.VITE_OPENAI_API_KEY 
+
+
   
   async submitDocument(file: File): Promise<PlagiarismCheckResult> {
     const text = await this.extractTextFromFile(file);
+
     const plagiarismResult = await this.checkPlagiarismWithOpenAI(text);
 
     return plagiarismResult;
@@ -45,12 +47,9 @@ class PlagiarismService {
       reader.onload = async (e) => {
         const typedArray = new Uint8Array(e.target?.result as ArrayBuffer);
 
-        console.log("typedArray", typedArray);
-
         try {
           const pdf = await pdfjs.getDocument(typedArray).promise;
 
-          console.log("pdf", pdf);
           let extractedText = "";
 
           // Extract text from each page of the PDF
@@ -129,7 +128,6 @@ Conclusion: <Final analysis or summary>`,
     }
 
     const data: OpenAIResponse = await response.json();
-    console.log("response from openAI", data);
 
     const content = data.choices[0].message.content;
 
